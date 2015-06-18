@@ -18,14 +18,24 @@
         <td><%= comment.user_name %></td>
         <td><%= comment.body %></td>
         <td><%= comment.idea_id %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to comment do %>
+            <i class="fa fa-file-o"></i> Show
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_comment_path(comment) do %>
+            <i class="fa fa-pencil-square-o"></i> Edit
+          <% end %>
+        </td>
+        <td>
+          <%= link_to comment, data: { confirm: 'Are you sure?' }, method: :delete do %>
+            <i class="fa fa-trash-o"></i> Delete
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Comment', new_comment_path %>
